@@ -27,19 +27,19 @@ namespace ClubRegistration
         {
             connect.Open();
             string dataInsert = "INSERT INTO ClubMembers (StudentID,FirstName,MiddleName,LastName,Age,Gender,Program) VALUES ('"+int.Parse(txtStudentId.Text)+ "', '"+txtFirstName.Text+"', '"+txtMiddleName.Text+"', '"+txtLastName.Text+"', '"+int.Parse(txtAge.Text) +"', '"+cbGender+"', '"+cbProgram+"') ";
-
             SqlDataAdapter adapter = new SqlDataAdapter(dataInsert, connect);
-            bool save = false;
+            bool save = true;
 
             if(adapter.SelectCommand.ExecuteNonQuery() > 0)
             {
-                save = true;
-            } if (save)
-            {
-                MessageBox.Show("Data Saved");
-            } else
-            {
-                MessageBox.Show("Error");
+                if (save)
+                {
+                    MessageBox.Show("Data Saved");
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
             }
 
             connect.Close();
