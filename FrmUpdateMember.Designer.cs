@@ -75,11 +75,11 @@
             this.cbProgram.Font = new System.Drawing.Font("Google Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbProgram.FormattingEnabled = true;
             this.cbProgram.Items.AddRange(new object[] {
-            "BS in Information Technology (BSIT)",
-            "BS in Business Administration (BSBA)",
-            "BS in Tourism Management (BSTM)",
-            "BS in Hospitality Management (BSHM)",
-            "BS in Tourism Management (BSTM)"});
+            "(BSIT) BS in Information Technology",
+            "(BSBA) BS in Business Administration",
+            "(BSTM) BS in Tourism Management ",
+            "(BSHM) BS in Hospitality Management",
+            "(BSTM) BS in Tourism Management"});
             this.cbProgram.Location = new System.Drawing.Point(49, 507);
             this.cbProgram.Name = "cbProgram";
             this.cbProgram.Size = new System.Drawing.Size(298, 28);

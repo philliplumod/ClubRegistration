@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.SqlServer.Server;
 
 namespace ClubRegistration
 {
@@ -18,19 +19,16 @@ namespace ClubRegistration
         {
             InitializeComponent();
         }
-        SqlDataAdapter adapter = new SqlDataAdapter();
         SqlConnection connect = new SqlConnection(@"Data Source=LAYOUT-PC;Initial Catalog=db_data;Integrated Security=True");
-
-
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             connect.Open();
-            string dataInsert = "INSERT INTO ClubMembers (StudentID,FirstName,MiddleName,LastName,Age,Gender,Program) VALUES ('"+int.Parse(txtStudentId.Text)+ "', '"+txtFirstName.Text+"', '"+txtMiddleName.Text+"', '"+txtLastName.Text+"', '"+int.Parse(txtAge.Text) +"', '"+cbGender+"', '"+cbProgram+"') ";
+            string dataInsert = "INSERT INTO ClubMembers (StudentID,FirstName,MiddleName,LastName,Age,Gender,Program) VALUES ('" + int.Parse(txtStudentId.Text) + "', '" + txtFirstName.Text + "', '" + txtMiddleName.Text + "', '" + txtLastName.Text + "', '" + int.Parse(txtAge.Text) + "', '" + cbGender.SelectedValue + "', '" + cbProgram.SelectedIndex + "') ";
             SqlDataAdapter adapter = new SqlDataAdapter(dataInsert, connect);
             bool save = true;
 
-            if(adapter.SelectCommand.ExecuteNonQuery() > 0)
+            if (adapter.SelectCommand.ExecuteNonQuery() > 0)
             {
                 if (save)
                 {
@@ -43,10 +41,11 @@ namespace ClubRegistration
             }
 
             connect.Close();
+        }
 
-
-         
-
+        private void FrmClubRegistration_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
